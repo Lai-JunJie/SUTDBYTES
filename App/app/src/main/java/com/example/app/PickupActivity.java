@@ -141,7 +141,7 @@ public class PickupActivity extends Activity {
                             }
                         });
 
-                Intent intent = new Intent(PickupActivity.this, MessagesActivity.class);
+                Intent intent = new Intent(PickupActivity.this, ReviewActivity.class);
                 intent.putExtra("role", "picker");
                 intent.putExtra("orderID", neworder);
                 startActivity(intent);

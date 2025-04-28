@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Button;
 
-public class Navigation {
+public class Navigation { // Facade pattern
     public static void setupNavigation(Activity activity) {
         Button btn_home = activity.findViewById(R.id.btn_home);
         Button btn_shop_add = activity.findViewById(R.id.btn_shop_add);
@@ -18,7 +18,6 @@ public class Navigation {
                 activity.startActivity(intent);
             });
         }
-
         if (btn_shop_add != null) {
             btn_shop_add.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, CartActivity.class);
@@ -26,24 +25,21 @@ public class Navigation {
                 activity.startActivity(intent);
             });
         }
-
         if (btn_shop_remove != null) {
             btn_shop_remove.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, RequestActivity.class);
                 activity.startActivity(intent);
             });
         }
-
         if (btn_user != null) {
             btn_user.setOnClickListener(v -> {
                 Intent intent = new Intent(activity, UserProfileActivity.class);
                 activity.startActivity(intent);
             });
         }
-
         if (btn_msg != null) {
             btn_msg.setOnClickListener(v -> {
-                Intent intent = new Intent(activity, MessagesActivity.class);
+                Intent intent = new Intent(activity, ReviewActivity.class);
                 activity.startActivity(intent);
             });
         }

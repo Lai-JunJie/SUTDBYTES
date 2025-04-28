@@ -10,14 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -29,9 +26,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -243,7 +237,7 @@ public class CartActivity extends Activity {
                         preferencesEditor.apply();
                         cartItems.clear();
 
-                        Intent intent = new Intent(CartActivity.this, MessagesActivity.class);
+                        Intent intent = new Intent(CartActivity.this, ReviewActivity.class);
                         intent.putExtra("role", "requester");
                         intent.putExtra("orderID",orderID);
                         startActivity(intent);

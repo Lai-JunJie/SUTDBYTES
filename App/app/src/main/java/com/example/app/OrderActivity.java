@@ -21,7 +21,6 @@ public class OrderActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //EdgeToEdge.enable(this);
         setContentView(R.layout.activity_order);
         Navigation.setupNavigation(this);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -30,16 +29,15 @@ public class OrderActivity extends Activity {
         TextView TextUser = findViewById(R.id.textUser);
         TextUser.setText("Logged in as: " + user_email);
 
-        //Not implemented
 
         //Food from trending and favourite
         Button btnKoi = findViewById(R.id.koi_home);
         Button btnWokhey = findViewById(R.id.wokhey_home);
         Button btnMc = findViewById(R.id.mc_home);
 
-        btnKoi.setOnClickListener(v -> openFoodOptionActivity(new Koi()));
-        btnWokhey.setOnClickListener(v -> openFoodOptionActivity(new Wokhey()));
-        btnMc.setOnClickListener(v -> openFoodOptionActivity(new Mac()));
+        btnKoi.setOnClickListener(v -> openFoodOptionActivity(FoodOptionFactory.createFoodOption("Koi")));
+        btnWokhey.setOnClickListener(v -> openFoodOptionActivity(FoodOptionFactory.createFoodOption("Wokhey")));
+        btnMc.setOnClickListener(v -> openFoodOptionActivity(FoodOptionFactory.createFoodOption("Mac")));
 
         
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

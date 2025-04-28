@@ -2,13 +2,10 @@ package com.example.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,15 +23,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MessagesActivity extends Activity {
+public class ReviewActivity extends Activity {
 
     double deliveryFee;
     String DistanceType;
@@ -57,7 +51,7 @@ public class MessagesActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messages);
+        setContentView(R.layout.activity_review);
         Navigation.setupNavigation(this);
 
         TextView role_view = findViewById(R.id.role_label);
@@ -186,16 +180,16 @@ public class MessagesActivity extends Activity {
                                                 }
                                             });} else {
                                     Log.d("TAG", "No completed order found. Cannot update user points.");
-                                    Toast.makeText(MessagesActivity.this, "Order is not marked as Completed yet!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ReviewActivity.this, "Order is not marked as Completed yet!", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                             })
                             .addOnFailureListener(e -> {
                                 Log.e("TAG", "Failed to check order status", e);
-                                Toast.makeText(MessagesActivity.this, "Failed to check order status.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ReviewActivity.this, "Failed to check order status.", Toast.LENGTH_SHORT).show();
                             });
 
-                    Intent intent = new Intent(MessagesActivity.this, UserProfileActivity.class);
+                    Intent intent = new Intent(ReviewActivity.this, UserProfileActivity.class);
                     startActivity(intent);
                 }
             });
@@ -221,9 +215,9 @@ public class MessagesActivity extends Activity {
                                 }
                             });
 
-                    Intent intent = new Intent(MessagesActivity.this, UserProfileActivity.class);
+                    Intent intent = new Intent(ReviewActivity.this, UserProfileActivity.class);
                     startActivity(intent);
-                    Toast.makeText(MessagesActivity.this, "Request completed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReviewActivity.this, "Request completed", Toast.LENGTH_SHORT).show();
                 }
             });
         }

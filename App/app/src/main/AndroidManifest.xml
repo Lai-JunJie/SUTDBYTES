@@ -28,7 +28,7 @@
             android:name=".UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MessagesActivity"
+            android:name=".ReviewActivity"
             android:exported="false" />
         <activity
             android:name=".PickupActivity"
